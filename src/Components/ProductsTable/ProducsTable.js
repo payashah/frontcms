@@ -137,7 +137,7 @@ function ProducsTable() {
                                         <button onClick={() => (
                                             setIsShowDeleteModal(true),
                                             setProductID(product.id)
-                                        )} className="producsTable-btns-btn">حذف</button>
+                                        )} className="producsTable-btns-btn delete">حذف</button>
 
                                     </div>
                                 </td>
