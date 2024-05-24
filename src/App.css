@@ -1,0 +1,15 @@
+body {}
+
+.app {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    direction: rtl;
+
+}
+
+.main {
+    flex: 5;
+    position: sticky;
+    padding: 1rem;
+}

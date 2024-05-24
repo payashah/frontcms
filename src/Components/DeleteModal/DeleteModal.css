@@ -1,0 +1,38 @@
+.deleteModal {
+    background-color: var(--white);
+    padding: 2rem;
+}
+
+.deleteModal-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.deleteModal-btns {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.deleteModal-btns-yes {
+    width: 5rem;
+    height: 2.5rem;
+    border: none;
+    background-color: var(--teal);
+    color: var(--white);
+    border-radius: .5rem;
+    font-size: 20px;
+}
+
+.deleteModal-btns-no {
+    width: 5rem;
+    height: 2.5rem;
+    border: none;
+    background-color: var(--gray);
+    color: var(--white);
+    border-radius: .5rem;
+    font-size: 20px;
+
+
+}

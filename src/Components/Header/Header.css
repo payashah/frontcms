@@ -1,0 +1,82 @@
+.header-ctrl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 50%;
+}
+
+.header-right-img {
+    max-width: 5rem;
+    max-height: 5rem;
+    border-radius: 100%;
+    margin-left: 1rem;
+}
+
+.header-right-info {}
+
+.header-right-info-name {
+    color: rgb(59, 10, 10);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+
+.header-right-info-job {
+    font-weight: bold;
+    color: gray;
+
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    margin-left: 10rem;
+}
+
+.header-left-input {
+    width: 30rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+.input-box {
+    background-color: var(--white);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .3);
+    display: flex;
+    border-radius: .5rem;
+}
+
+.header-left-input-btn {
+    font-size: 20px;
+    margin: .5rem;
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    outline: none;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+
+.header-left-input-btn:hover {
+    background-color: var(--teal-100);
+}
+
+.header-left-notif {
+    margin-right: 2rem;
+    margin-left: 2rem;
+    scale: 2;
+}
+
+.header-left-brightness {
+    scale: 2;
+
+}

@@ -1,0 +1,38 @@
+.detailTableModal-ctrl {
+    background-color: var(--white);
+    position: relative;
+    border-radius: .5rem;
+}
+
+.detailTableModal-btn {
+    position: absolute;
+    right: 0;
+    border: none;
+    background-color: var(--white);
+    border-radius: .5rem;
+}
+
+.detailTableModal-btn:hover {
+    color: var(--gray-100);
+}
+
+.detailTableModal {
+    margin-top: 1rem;
+    background-color: var(--white);
+    font-size: 20px;
+    text-align: center;
+    border-radius: .5rem;
+}
+
+.detailTableModal-tr {}
+
+.detailTableModal-tr-head {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--gray);
+    font-weight: bold;
+}
+
+.detailTableModal-tr-data {
+    padding: 1rem 2rem;
+
+}

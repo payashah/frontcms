@@ -1,0 +1,43 @@
+.sidbar-ctrl {
+    background-color: var(--teal);
+    display: flex;
+    justify-content: right;
+    align-items: start;
+    flex: 1;
+    position: sticky;
+    direction: rtl;
+    height: 100vh;
+}
+
+.sidbar {}
+
+.sidbar-title {
+    font-size: 30px;
+    color: var(--white);
+    padding: 10px;
+    border-bottom: 2px solid rgb(210, 211, 209);
+
+}
+
+.sidbar-links {
+    font-size: 20px;
+    color: var(--white);
+    margin-top: 2rem;
+
+}
+
+.sidbar-links-li {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.sidbar-links-li-icon {
+    margin-left: 1rem;
+}
+
+.sidbar-links-li.active {
+    background-color: var(--teal-100)
+}

@@ -1,0 +1,73 @@
+.comment-ctrl {
+    margin-top: 2rem;
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.comment-table {
+    width: 100%;
+}
+
+.comment-table-tr {}
+
+.comment-table-tr-th {
+    width: 20%;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: .7rem;
+    border-bottom: 1px solid gray;
+}
+
+.comment-table-tr-td {
+    width: 20%;
+    font-size: 18px;
+    padding: 1rem 0;
+
+}
+
+.comment-table-tr-td-btnShowComment {
+    width: 4rem;
+    padding: .3rem .7rem;
+    border-radius: .5rem;
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    outline: none;
+    font-size: 17px;
+}
+
+.comment-table-tr-td-btnShowComment:hover {
+    background-color: var(--teal-100);
+}
+
+.comment-table-tr-td-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-table-tr-td-btns-item {
+    width: 4rem;
+    padding: .3rem .7rem;
+    margin: 0 .3rem;
+    border-radius: .5rem;
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    outline: none;
+    font-size: 17px;
+}
+
+.comment-table-tr-td-btns-item:hover {
+    background-color: var(--teal-100);
+}
+
+.comment-table-tr-td-btns-item.delete {
+    background-color: var(--red);
+}
+
+.comment-table-tr-td-btns-item.delete:hover {
+    background-color: var(--red-100);
+
+}
