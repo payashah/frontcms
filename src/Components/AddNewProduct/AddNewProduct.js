@@ -11,7 +11,7 @@ function AddNewProduct() {
     const [newProductCount, setNewProductCount] = useState("")
     const [newProductColors, setNewProductColors] = useState("")
 
-    const newProduct = {
+    const newProductInfos = {
         title: newProductTitle,
         img: newProductImg,
         price: newProductPrice,
@@ -25,14 +25,19 @@ function AddNewProduct() {
     const addNewProduct = ((event) => {
         event.preventDefault()
 
+        console.log(newProductInfos);
+
         fetch("http://localhost:8000/api/products/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newProduct)
+            body: JSON.stringify(newProductInfos)
         })
-            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                return res.json()
+            })
             .then(result => console.log(result))
     })
 
