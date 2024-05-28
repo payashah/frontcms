@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AddNewProduct.css"
 
-function AddNewProduct() {
+function AddNewProduct({ getAllProducts }) {
 
     const [newProductTitle, setNewProductTitle] = useState("")
     const [newProductImg, setNewProductImg] = useState("")
@@ -38,8 +38,22 @@ function AddNewProduct() {
                 console.log(res);
                 return res.json()
             })
-            .then(result => console.log(result))
+            .then(result =>
+                getAllProducts(),
+                empetyinput()
+
+            )
     })
+
+    function empetyinput() {
+        setNewProductTitle("")
+        setNewProductImg("")
+        setNewProductPrice("")
+        setNewProductPopularity("")
+        setNewProductSale("")
+        setNewProductCount("")
+        setNewProductColors("")
+    }
 
 
     return (

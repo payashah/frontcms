@@ -6,12 +6,11 @@ import EditModal from "../EditModal/EditModal";
 import { BsFillCloudUploadFill } from "react-icons/bs";
 
 
-function ProducsTable() {
+function ProducsTable({ allProducts, getAllProducts }) {
 
     const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
     const [isShowDetailsModal, setIsShowDetailsModal] = useState(false);
     const [isShowEditModal, setIsShowEditModal] = useState(false);
-    const [allProducts, setAllProducts] = useState([])
     const [productID, setProductID] = useState(null)
     const [mainProductInfos, setMainProductInfos] = useState({})
     const [productNewTitle, setProductNewTitle] = useState("")
@@ -23,18 +22,7 @@ function ProducsTable() {
     const [productNewSale, setProductNewSale] = useState("")
 
 
-    useEffect(() => {
-        getAllProducts()
-    }, [])
 
-    const getAllProducts = () => {
-        fetch("http://localhost:8000/api/products/")
-            .then(res => res.json())
-            .then(products => {
-                console.log(products)
-                setAllProducts(products)
-            })
-    }
 
     const acceptDeleteModal = () => {
         console.log('productID ->', productID)
