@@ -71,3 +71,17 @@
     background-color: var(--red-100);
 
 }
+
+.comment-show {
+    padding: 2rem;
+}
+
+.pop {
+    background-color: aqua;
+}
+
+.comment-text {
+    padding: 1rem;
+    color: var(--red);
+    font-size: 20px;
+}

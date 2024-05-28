@@ -2,11 +2,14 @@
     background-color: var(--white);
     position: relative;
     border-radius: .5rem;
+    padding: 1rem;
+
 }
 
 .detailTableModal-btn {
     position: absolute;
     right: 0;
+    top: 0;
     border: none;
     background-color: var(--white);
     border-radius: .5rem;

@@ -6,7 +6,7 @@ import { IoClose } from "react-icons/io5";
 
 function DetailsModal({ closeDetails, children }) {
 
-    return ReactDOM.createPortal(
+    return (
         <div className="Modal-ctrl active">
             <div className="detailTableModal-ctrl">
                 <button onClick={closeDetails} className="detailTableModal-btn"><IoClose></IoClose></button>
@@ -14,7 +14,7 @@ function DetailsModal({ closeDetails, children }) {
                 {children}
             </div>
 
-        </div>, document.getElementById("modals-parent")
+        </div>
     )
 }
 
