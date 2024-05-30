@@ -134,28 +134,37 @@ function ProducsTable({ allProducts, getAllProducts }) {
                         ))}
                     </tbody>
                 </table>
-                {isShowDeleteModal && <DeleteModal acceptDelete={acceptDeleteModal} rejectDelete={rejectDeleteModal} />}
-                {isShowDetailsModal && <DetailsModal closeDetails={closeDetailsModal}>
-                    <table className="detailTableModal">
+                {isShowDeleteModal && (
+                    <DeleteModal
+                        title="آیا از حذف محصول اطمینان دارید ؟" acceptDelete={acceptDeleteModal} rejectDelete={rejectDeleteModal}
+                    ></DeleteModal>
+                )
+                }
 
-                        <thead>
-                            <tr className="detailTableModal-tr">
-                                <th className="detailTableModal-tr-head">محبوبیت</th>
-                                <th className="detailTableModal-tr-head">رنگبندی</th>
-                                <th className="detailTableModal-tr-head">نام</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr className="detailTableModal-tr">
-                                <td className="detailTableModal-tr-data">{mainProductInfos.popularity}</td>
-                                <td className="detailTableModal-tr-data">{mainProductInfos.colors}</td>
-                                <td className="detailTableModal-tr-data">{mainProductInfos.title}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </DetailsModal>}
+                {isShowDetailsModal &&
+                    <DetailsModal closeAction={closeDetailsModal}>
 
-                {isShowEditModal && <EditModal onSubmit={updateData} closeEdit={closeEditsModal}>
+                        <table className="detailTableModal">
+
+                            <thead>
+                                <tr className="detailTableModal-tr">
+                                    <th className="detailTableModal-tr-head">محبوبیت</th>
+                                    <th className="detailTableModal-tr-head">رنگبندی</th>
+                                    <th className="detailTableModal-tr-head">نام</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="detailTableModal-tr">
+                                    <td className="detailTableModal-tr-data">{mainProductInfos.popularity}</td>
+                                    <td className="detailTableModal-tr-data">{mainProductInfos.colors}</td>
+                                    <td className="detailTableModal-tr-data">{mainProductInfos.title}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </DetailsModal>}
+
+                {isShowEditModal && <EditModal onSubmitAction={updateData} closeAction={closeEditsModal}>
+
                     <>
                         <div className="editModal-input">
                             <input type="text" className="editModal-input-data" placeholder="نام محصول"

@@ -15,6 +15,7 @@ function Comments() {
     const [isShowEditModal, setIsShowEditModal] = useState(false)
     const [mainCommentBody, setMainCommentBody] = useState("")
     const [commentID, setCommentID] = useState(null)
+    const [isShowAcceptModal, setIsShowAcceptModal] = useState(false)
 
 
 
@@ -70,10 +71,18 @@ function Comments() {
                 console.log(result)
                 setIsShowEditModal(false)
                 getAllComments()
-
             }
-
             )
+    }
+
+    const closeAcceptComment = () => {
+        setIsShowAcceptModal(false)
+    }
+
+    const acceptComment = () => {
+        console.log("کامنت ثبت شد")
+
+        setIsShowAcceptModal(false)
 
     }
 
@@ -107,7 +116,10 @@ function Comments() {
                                 <td className="comment-table-tr-td">{comment.hour}</td>
                                 <td className="comment-table-tr-td">
                                     <div className="comment-table-tr-td-btns">
-                                        <button className="comment-table-tr-td-btns-item">تایید</button>
+                                        <button onClick={() => {
+                                            setIsShowAcceptModal(true)
+                                            setCommentID(comment.id)
+                                        }} className="comment-table-tr-td-btns-item">تایید</button>
 
                                         <button onClick={() => {
                                             setIsShowEditModal(true)
@@ -133,27 +145,38 @@ function Comments() {
 
             )}
             {isShowDetailsModal && (
-                <DetailsModal className="detailTableModal-ctrl" closeDetails={closeDetailsComment}>
+                <DetailsModal className="detailTableModal-ctrl" closeAction={closeDetailsComment}>
                     <p className="comment-text">{mainDetailsComment}</p>
                 </DetailsModal>
             )}
             {
                 isShowDeleteModal &&
                 (
-                    <DeleteModal rejectDelete={closeDeleteComment} acceptDelete={acceptDeleteComment}>
+                    <DeleteModal title="آیا از حذف کامنت اطمینان دارید ؟" rejectAction={closeDeleteComment} acceptAction={acceptDeleteComment}>
 
                     </DeleteModal>
                 )
             }
             {
                 isShowEditModal && (
-                    <EditModal closeEdit={closeEditComment} onSubmit={updateComment}>
+                    <EditModal closeAction={closeEditComment} onSubmitAction={updateComment}>
                         <textarea className="comment-edit-text"
                             value={mainCommentBody}
                             onChange={(event) => setMainCommentBody(event.target.value)}
                         >
                         </textarea>
                     </EditModal>
+                )
+            }
+            {
+                isShowAcceptModal && (
+                    <DeleteModal
+                        title="آیا از تایید این کامنت اطمینان دارید ؟"
+                        rejectAction={closeAcceptComment}
+                        acceptAction={acceptComment}
+                    >
+
+                    </DeleteModal>
                 )
             }
         </div>

@@ -76,10 +76,6 @@
     padding: 2rem;
 }
 
-.pop {
-    background-color: aqua;
-}
-
 .comment-text {
     padding: 1rem;
     color: var(--red);

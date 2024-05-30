@@ -1,0 +1,66 @@
+.users-ctrl {
+    margin: .5rem;
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.users-title {
+    text-align: start;
+    font-size: 30px;
+    color: var(--red-100);
+}
+
+.users-table {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.users-table-tr {}
+
+.users-table-tr-th {
+    font-size: 20px;
+    width: 5%;
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 1rem;
+    color: var(--teal);
+    font-weight: bold;
+}
+
+.users-table-tr-td {
+    font-size: 18px;
+    padding: 1rem 0;
+}
+
+.users-table-tr-td-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.users-table-tr-td-btns-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    padding: .3rem .7rem;
+    border-radius: .5rem;
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    outline: none;
+    font-size: 17px;
+    margin: 0 .5rem;
+}
+
+.users-table-tr-td-btns-btn:hover {
+    background-color: var(--teal-100);
+}
+
+.users-table-tr-td-btns-btn.delete {
+    background-color: var(--red);
+}
+
+.users-table-tr-td-btns-btn.delete:hover {
+    background-color: var(--red-100);
+}
