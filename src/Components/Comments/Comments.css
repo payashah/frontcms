@@ -85,3 +85,20 @@
     color: var(--red);
     font-size: 20px;
 }
+
+.comment-text-edit {
+    width: 100%;
+    height: auto;
+    background-color: rgb(226, 223, 223);
+    border-radius: .5rem;
+    padding: .5rem;
+    margin-top: 1rem;
+}
+
+.comment-edit-text {
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    background-color: rgb(216, 213, 213);
+    padding: 1rem;
+}

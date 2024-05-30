@@ -2,23 +2,81 @@ import React, { useEffect, useState } from "react";
 import "./Comments.css"
 import ErrorBox from "../ErrorBox/ErrorBox";
 import DetailsModal from "../DetailsModal/DetailsModal";
+import DeleteModal from "../DeleteModal/DeleteModal"
+import EditModal from "../EditModal/EditModal";
+
 
 function Comments() {
 
     const [allComments, setAllComments] = useState([])
     const [isShowDetailsModal, setIsShowDetailsModal] = useState(false)
     const [mainDetailsComment, setMainDetailsComment] = useState("")
+    const [isShowDeleteModal, setIsShowDeleteModal] = useState(false)
+    const [isShowEditModal, setIsShowEditModal] = useState(false)
+    const [mainCommentBody, setMainCommentBody] = useState("")
+    const [commentID, setCommentID] = useState(null)
+
 
 
     useEffect(() => {
+        getAllComments()
+    }, [])
+
+
+    function getAllComments() {
         fetch("http://localhost:8000/api/comments/")
             .then(res => res.json())
             .then(comments => setAllComments(comments))
-    }, [])
+    }
+
 
     const closeDetailsComment = () => {
         setIsShowDetailsModal(false)
     }
+    const closeDeleteComment = () => {
+        setIsShowDeleteModal(false)
+    }
+    const acceptDeleteComment = () => {
+
+        fetch(`http://localhost:8000/api/comments/${commentID}`, {
+            method: "DELETE"
+        })
+            .then(res => res.json()
+                .then(result => {
+                    setIsShowDeleteModal(false)
+                    getAllComments()
+                }))
+    }
+
+    const closeEditComment = () => {
+        setIsShowEditModal(false)
+    }
+
+    const updateComment = (event) => {
+
+        event.preventDefault()
+
+        fetch(`http://localhost:8000/api/comments/${commentID}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                body: mainCommentBody,
+            })
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+                setIsShowEditModal(false)
+                getAllComments()
+
+            }
+
+            )
+
+    }
+
 
     return (
         <div className="comment-ctrl">
@@ -50,9 +108,19 @@ function Comments() {
                                 <td className="comment-table-tr-td">
                                     <div className="comment-table-tr-td-btns">
                                         <button className="comment-table-tr-td-btns-item">تایید</button>
-                                        <button className="comment-table-tr-td-btns-item">ویرایش</button>
+
+                                        <button onClick={() => {
+                                            setIsShowEditModal(true)
+                                            setMainCommentBody(comment.body)
+                                            setCommentID(comment.id)
+                                        }} className="comment-table-tr-td-btns-item">ویرایش</button>
+
                                         <button className="comment-table-tr-td-btns-item">پاسخ</button>
-                                        <button className="comment-table-tr-td-btns-item delete">حذف</button>
+
+                                        <button onClick={() => {
+                                            setIsShowDeleteModal(true)
+                                            setCommentID(comment.id)
+                                        }} className="comment-table-tr-td-btns-item delete">حذف</button>
                                     </div>
                                 </td>
                             </tr>
@@ -69,6 +137,25 @@ function Comments() {
                     <p className="comment-text">{mainDetailsComment}</p>
                 </DetailsModal>
             )}
+            {
+                isShowDeleteModal &&
+                (
+                    <DeleteModal rejectDelete={closeDeleteComment} acceptDelete={acceptDeleteComment}>
+
+                    </DeleteModal>
+                )
+            }
+            {
+                isShowEditModal && (
+                    <EditModal closeEdit={closeEditComment} onSubmit={updateComment}>
+                        <textarea className="comment-edit-text"
+                            value={mainCommentBody}
+                            onChange={(event) => setMainCommentBody(event.target.value)}
+                        >
+                        </textarea>
+                    </EditModal>
+                )
+            }
         </div>
     )
 }
